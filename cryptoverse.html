@@ -1563,7 +1563,7 @@
         })();
 
         // ============= DATA LAYER =============
-        const PROXY = 'http://localhost:3001?url=';
+        const PROXY = 'https://cryptoverse-production.up.railway.app/';
         const COINGECKO_BASE = PROXY + encodeURIComponent('https://api.coingecko.com/api/v3');
 
         const PORTFOLIO_HOLDINGS = [
@@ -2018,7 +2018,7 @@
         // ===== FEAR & GREED =====
         async function fetchFearGreed() {
             try {
-                const res = await fetch('http://localhost:3001?url=' + encodeURIComponent('https://api.alternative.me/fng/?limit=1'));
+                const res = await fetch('https://cryptoverse-production.up.railway.app/' + encodeURIComponent('https://api.alternative.me/fng/?limit=1'));
                 const json = await res.json();
                 const val = parseInt(json.data[0].value);
                 const label = json.data[0].value_classification;
