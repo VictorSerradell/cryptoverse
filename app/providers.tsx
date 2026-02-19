@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 const Web3Provider = dynamic(
   () =>
-    import("@/providers/Web3Provider").then((m) => ({
+    import("./providers/Web3provider").then((m) => ({
       default: m.Web3Provider,
     })),
   { ssr: false },
