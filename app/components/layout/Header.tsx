@@ -3,6 +3,7 @@ import { useCryptoData } from "@/app/hooks/Usecryptodata";
 import { useCryptoStore } from "@/app/store/Cryptostore";
 import { RefreshCw } from "lucide-react";
 import { useState, useCallback } from "react";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
 
 export function Header() {
   const { refresh } = useCryptoData();
@@ -14,6 +15,9 @@ export function Header() {
     await refresh();
     setTimeout(() => setSpinning(false), 800);
   }, [refresh]);
+
+  const { open } = useWeb3Modal();
+
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-[rgba(2,2,7,0.85)] border-b border-white/[0.08] px-8 h-16 flex items-center justify-between gap-6">
@@ -53,7 +57,11 @@ export function Header() {
           Refresh
         </button>
 
-        <w3m-button />
+        <button onClick={() => open()}
+  className="px-4 py-2 rounded-lg text-xs font-semibold bg-gradient-to-r from-indigo-500 to-violet-500 text-white hover:opacity-90 transition-all shadow-neon"
+>
+  Connect Wallet
+</button>
       </div>
     </header>
   );
